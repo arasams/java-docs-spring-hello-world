@@ -12,10 +12,7 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-/*	@RequestMapping("/")
-	String sayHello() {
-		return "Hello Met Hackathon";
-	}*/
+
 	
 @RestController 
 public class HomeContoller {
