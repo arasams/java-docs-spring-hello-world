@@ -14,9 +14,15 @@ public class DemoApplication {
 	}
 
 
+    @RequestMapping("/")
+    public String index() {
+        return "index";
+    }
 	
-@RequestMapping("/")
-public String index() {
-    return "index.html";
+public class HomeContoller {
+    @RequestMapping("/")
+    public String index() {
+        return "index";
+    }
 }
 }
