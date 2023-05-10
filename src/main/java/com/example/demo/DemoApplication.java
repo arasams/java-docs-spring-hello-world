@@ -6,15 +6,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
 public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
-	@RequestMapping("/")
+/*	@RequestMapping("/")
 	String sayHello() {
 		return "Hello Met Hackathon";
-	}
+	}*/
+	
+@RestController 
+public class HomeContoller {
+    @RequestMapping("/")
+    public String index() {
+        return "index";
+    }
 }
