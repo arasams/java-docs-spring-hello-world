@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@RestController 
 @SpringBootApplication
 public class DemoApplication {
 
@@ -14,10 +15,8 @@ public class DemoApplication {
 
 
 	
-@RestController 
-public class HomeContoller {
-    @RequestMapping("/")
-    public String index() {
-        return "index";
-    }
+@RequestMapping("/")
+public String index() {
+    return "index.html";
+}
 }
