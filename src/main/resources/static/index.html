@@ -70,12 +70,13 @@
 
         function acquireTokenPopupAndCallFHIRServer() {
              var divWelcome = document.getElementById('WelcomeMessage');
-            divWelcome.innerHTML = "Welcome to MetHackathon Patient Browsing App";
-          
+             divWelcome.innerHTML = "Welcome to MetHackathon Patient Browsing App";
+            divWelcome.innerHTML = "Start Debugging";
             myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
             divWelcome.innerHTML = "Inside acquireTokenSilent";               
                 callFHIRServer(FHIRConfig.FHIRendpoint + '/Patient', 'GET', null, tokenResponse.accessToken, FHIRCallback);
             }).catch(function (error) {
+                divWelcome.innerHTML = "Inside Error acquireTokenSilent";  
                 console.log(error);
                 if (requiresInteraction(error.errorCode)) {
                     myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
@@ -88,6 +89,8 @@
         }
 
         function callFHIRServer(theUrl, method, message, accessToken, callBack) {
+            var divWelcome = document.getElementById('WelcomeMessage');
+                 divWelcome.innerHTML = "Inside callFHIRServer";               
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200)
