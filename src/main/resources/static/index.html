@@ -69,6 +69,7 @@
         }
 
         function acquireTokenPopupAndCallFHIRServer() {
+             loginbutton.innerHTML = 'I am here';
             myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
                 callFHIRServer(FHIRConfig.FHIRendpoint + '/Patient', 'GET', null, tokenResponse.accessToken, FHIRCallback);
             }).catch(function (error) {
