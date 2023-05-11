@@ -69,10 +69,9 @@
         }
 
         function acquireTokenPopupAndCallFHIRServer() {
-            
+             var divWelcome = document.getElementById('WelcomeMessage');
             divWelcome.innerHTML = "Welcome to MetHackathon Patient Browsing App";
-             <p id="SignInMessage">MatHackathon Application Patient List</p>
-            
+           
             myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
                 callFHIRServer(FHIRConfig.FHIRendpoint + '/Patient', 'GET', null, tokenResponse.accessToken, FHIRCallback);
             }).catch(function (error) {
