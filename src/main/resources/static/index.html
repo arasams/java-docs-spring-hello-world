@@ -28,7 +28,7 @@
         }
 
         var FHIRConfig = {
-            FHIRendpoint: "https://methackathon.azurehealthcareapis.com"
+            FHIRendpoint: "https://hcpintegration.azurehealthcareapis.com"
         }
         var requestObj = {
             scopes: ["https://methackathon.azurehealthcareapis.com/user_impersonation"]
@@ -71,7 +71,7 @@
         function acquireTokenPopupAndCallFHIRServer() {
              var divWelcome = document.getElementById('WelcomeMessage');
             divWelcome.innerHTML = "Welcome to MetHackathon Patient Browsing App";
-           
+          
             myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
                 callFHIRServer(FHIRConfig.FHIRendpoint + '/Patient', 'GET', null, tokenResponse.accessToken, FHIRCallback);
             }).catch(function (error) {
