@@ -75,10 +75,12 @@
              divWelcome.innerHTML = "Welcome to MetHackathon Patient Browsing App";
             divDebugMsg.innerHTML = "Start Debugging";
             myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
-            divWelcome.innerHTML = "Inside acquireTokenSilent";               
+                var divDebugMsg1 = document.getElementById('DebugMsg');
+            divDebugMsg1.innerHTML = "Inside acquireTokenSilent";               
                 callFHIRServer(FHIRConfig.FHIRendpoint + '/Patient', 'GET', null, tokenResponse.accessToken, FHIRCallback);
             }).catch(function (error) {
-                divWelcome.innerHTML = "Inside Error acquireTokenSilent";  
+                  var divDebugMsg2 = document.getElementById('DebugMsg');
+                 divDebugMsg2.innerHTML = "Inside Error acquireTokenSilent  -- > " +error;  
                 console.log(error);
                 if (requiresInteraction(error.errorCode)) {
                     myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
