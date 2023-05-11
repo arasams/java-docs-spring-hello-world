@@ -14,15 +14,6 @@ public class DemoApplication {
 	}
 
 
-    @RequestMapping("/")
-    public String index() {
-        return "index";
-    }
-	
-public class HomeContoller {
-    @RequestMapping("/")
-    public String index() {
-        return "index";
-    }
+  
 }
 }
