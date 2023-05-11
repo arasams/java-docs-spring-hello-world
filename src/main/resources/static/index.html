@@ -69,6 +69,8 @@
         }
 
         function acquireTokenPopupAndCallFHIRServer() {
+            
+            divWelcome.innerHTML = "Welcome to MetHackathon Patient Browsing App";
              <p id="SignInMessage">MatHackathon Application Patient List</p>
             
             myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
