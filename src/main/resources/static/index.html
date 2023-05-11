@@ -9,6 +9,7 @@
 <body>
     <div class="leftContainer">
         <p id="WelcomeMessage">Welcome to the FHIR Patient browsing sample Application</p>
+         <p id="DebugMsg">Debugging</p>
         <button id="SignIn" onclick="signIn()">Sign In</button>
     </div>
 
@@ -70,8 +71,9 @@
 
         function acquireTokenPopupAndCallFHIRServer() {
              var divWelcome = document.getElementById('WelcomeMessage');
+             var divDebugMsg = document.getElementById('DebugMsg');
              divWelcome.innerHTML = "Welcome to MetHackathon Patient Browsing App";
-            divWelcome.innerHTML = "Start Debugging";
+            divDebugMsg.innerHTML = "Start Debugging";
             myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
             divWelcome.innerHTML = "Inside acquireTokenSilent";               
                 callFHIRServer(FHIRConfig.FHIRendpoint + '/Patient', 'GET', null, tokenResponse.accessToken, FHIRCallback);
