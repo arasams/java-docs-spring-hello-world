@@ -73,6 +73,7 @@
             divWelcome.innerHTML = "Welcome to MetHackathon Patient Browsing App";
           
             myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+            divWelcome.innerHTML = "Inside acquireTokenSilent";               
                 callFHIRServer(FHIRConfig.FHIRendpoint + '/Patient', 'GET', null, tokenResponse.accessToken, FHIRCallback);
             }).catch(function (error) {
                 console.log(error);
